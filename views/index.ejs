@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <link rel="shortcut icon" href="/logo.svg" type="image/svg">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <style>
+         .showType {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             font-weight: bold;
+             border-bottom: 1px solid black;
+             margin: 0 5rem;
+         }
+         .showType p {
+             margin: 0.5rem;
+             display: inline-block;
+             cursor: pointer;
+         }
+         .showType .selected {
+             position: relative;
+         }
+         .showType .selected::before {
+             content: '';
+             position: absolute;
+             bottom: -0.5rem;
+             left: 0;
+             width: 0;
+             height: 3px;
+             background: orange;
+             animation: getIn 400ms ease-in-out forwards;
+         }
+         @keyframes getIn {
+             0% {
+                 width: 0;
+             }
+             100% {
+                 width: 100%;
+             }
+         }
+     </style>
+</head>
+<body>
+    <nav class="black white-text" style="padding: 0 1rem;z-index:10;">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">
+              <i class="material-icons">link</i>Links
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <a href="#" class="add">Upload Link</a>
+          </ul>
+        </div>
+      </nav>
+    
+      <a class="btn-floating btn-large waves-effect waves-light black add z-index:10" style="position: fixed;bottom:20px;right:20px" ><i class="material-icons">add</i></a>
+    
+    <div class="showType">
+        <p id="links" class="selected">Submissions</p>
+        <p id="emails">Faculty Emails</p>
+    </div>
+
+    <div class="links" style="margin: 0 auto;width:90%;max-width:600px;padding:1rem">
+           
+    </div>
+    
+    <div class="back" style="background: rgba(0,0,0,0.5);position:fixed;top:0;left:0;bottom:0;right:0;z-index:-10;opacity:0;display:flex;justify-content:center;align-items:center" >
+        <form action="/add-link" method="POST" class="container white" id="addLink" style="box-shadow: 0 5px 5px rgba(0,0,0,0.2);padding:1rem;transform:translateY(-100vh);opacity:0;margin-top:2rem;position:relative">
+            <i class="material-icons" id="close" style="position: absolute;top:10px;right:10px;cursor:pointer">close</i>
+            <p style="font-weight: bold;font-size:20px;text-align:center">Add Submission / Faculty Email </p>
+            <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" required />
+            <select name="type">
+                <option value="" disabled selected>Submission Link / Faculty Email</option>
+                <option value="email">Faculty E-Mail</option>
+                <option value="link">Link</option>
+                <option value="moodle">Moodle</option>
+                <option value="github">GitHub</option>
+            </select>
+            <input autoComplete="off" type="url" name="link" id="link" placeholder="https://example.com" required style="display: none;" required />
+            <input type="date" name="dueDate" id="dueDate" required />
+            <input type="time" name="dueTime" id="dueTime" required />
+            <input type="text" name="nameFormat" id="nameFormat" placeholder="File Name Format" />
+            <input type="text" name="fileType" id="fileType" placeholder="File Type" />
+            <input type="text" name="note" id="note" placeholder="Note" />
+
+            <button type="submit" class="btn black waves-effect waves-light" style="margin-top: 1rem;">ADD</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
+
+<!-- <div class="card">
+    <div class="card-content">
+        <input type="text" name="search" placeholder="Search" />
+        <button class="btn black waves-effect waves-light">
+            Search
+        </button>
+    </div>
+</div> -->
