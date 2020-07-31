@@ -82,8 +82,14 @@
                 <option value="github">GitHub</option>
             </select>
             <input autoComplete="off" type="url" name="link" id="link" placeholder="https://example.com" required style="display: none;" required />
-            <input type="date" name="dueDate" id="dueDate" required />
-            <input type="time" name="dueTime" id="dueTime" required />
+            <p id="dueDate">
+                DueDate
+                <input type="date" name="dueDate"  required />
+            </p>
+            <p id="dueTime">
+                DueTime
+                <input type="time" name="dueTime"  required />
+            </p>
             <input type="text" name="nameFormat" id="nameFormat" placeholder="File Name Format" />
             <input type="text" name="fileType" id="fileType" placeholder="File Type" />
             <input type="text" name="note" id="note" placeholder="Note" />

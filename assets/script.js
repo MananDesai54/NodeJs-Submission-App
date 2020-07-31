@@ -1,7 +1,8 @@
 const links = document.querySelector('.links');
 
 function getData(api='getData') {
-    fetch(`http://localhost:5000/api/${api}`)
+    fetch(`https://submissionlinks.herokuapp.com/api/${api}`)
+    // fetch(`http://localhost:5000/api/${api}`)
     .then(res=>res.json())
     .then(data=>{
         if(data.length===0) {

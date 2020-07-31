@@ -93,7 +93,6 @@ app.post('/api/delete-link',(req,res)=>{
         })
         
     })
-    res.redirect('/');
 })
 
 app.listen(PORT,()=>console.log('Server is running.'));
