@@ -35,13 +35,14 @@ function getData(api='getData') {
                     <p>
                         ${link.note} 
                     </p>
-                    <form action="/api/delete-link" method="POST">
-                        <input type="hidden" name="id" value=${link.id} />
-                        <button class="btn red waves-effect light-waves" style="margin-top:10px;" type="submit">
-                            Delete
-                        </button>
-                    </form>
+                    
                 `;
+                // <form action="/api/delete-link" method="POST">
+                //         <input type="hidden" name="id" value=${link.id} />
+                //         <button class="btn red waves-effect light-waves" style="margin-top:10px;" type="submit">
+                //             Delete
+                //         </button>
+                //     </form>
                 if(api==='getEmail') {
                     cardContent.innerHTML = `
                     <span class="card-title" style="font-size: 20px;font-weight:bold;text-transform:uppercase;">

@@ -77,22 +77,22 @@ app.post('/add-link',(req,res)=>{
     })
 })
 
-app.post('/api/delete-link',(req,res)=>{
-    console.log(req.body);
-    fs.readFile('links.json',(err,data)=>{
-        let links = [];
-        if(!err) {
-            links = JSON.parse(data);
-        }
+// app.post('/api/delete-link',(req,res)=>{
+//     console.log(req.body);
+//     fs.readFile('links.json',(err,data)=>{
+//         let links = [];
+//         if(!err) {
+//             links = JSON.parse(data);
+//         }
         
-        links = links.filter(link=>link.id!==req.body.id);
+//         links = links.filter(link=>link.id!==req.body.id);
         
-        fs.writeFile('links.json',JSON.stringify(links),err=>{
-            console.log(err);
-            res.redirect('/');
-        })
+//         fs.writeFile('links.json',JSON.stringify(links),err=>{
+//             console.log(err);
+//             res.redirect('/');
+//         })
         
-    })
-})
+//     })
+// })
 
 app.listen(PORT,()=>console.log('Server is running.'));
